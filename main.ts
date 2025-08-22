@@ -27,7 +27,7 @@ const operators = {
   'EXIT': (c: number) => (process.exit(0), c)
 } as const;
 
-function parseArgumens(str: string) {
+function parseArguments(str: string) {
   return str
     .split(/\s*\,\s*/)
     .filter(Boolean)
@@ -64,7 +64,7 @@ function processor(cmd: string) {
         );
 
         const previewCursor = cursor;
-        const parsed = parseArgumens(cmd.slice(key.length).trim());
+        const parsed = parseArguments(cmd.slice(key.length).trim());
 
         if (func.length - 1 > parsed.length) {
           throw new Error('Need arguments count ' + (func.length - 1));
@@ -80,7 +80,7 @@ function processor(cmd: string) {
       }
     }
 
-    memory[cursor] = parseArgumens(cmd).at(-1) ?? 0;
+    memory[cursor] = parseArguments(cmd).at(-1) ?? 0;
   } catch (e: any) {
     console.log(`Error: ${e?.message ?? e}`);
   } finally {
