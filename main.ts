@@ -22,6 +22,7 @@ const operators = {
   'SIN': (c: number) => Math.sin(c),
   'COS': (c: number) => Math.cos(c),
   'TAN': (c: number) => Math.tan(c),
+  'COT': (c: number) => 1 / Math.tan(c),
   'ATAN': (c: number) => Math.atan(c),
   'CL': (c: number) => (console.clear(), c),
   'EXIT': (c: number) => (process.exit(0), c)
